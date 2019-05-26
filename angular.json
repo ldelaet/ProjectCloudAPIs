@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProjectCloudAPIs": {
+    "Project2019": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ProjectCloudAPIs",
+            "outputPath": "dist/Project2019",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
@@ -43,25 +44,32 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ProjectCloudAPIs:build"
+            "browserTarget": "Project2019:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ProjectCloudAPIs:build:production"
+              "browserTarget": "Project2019:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProjectCloudAPIs:build"
+            "browserTarget": "Project2019:build"
           }
         },
         "test": {
@@ -95,15 +103,21 @@
         }
       }
     },
-    "ProjectCloudAPIs-e2e": {
+    "Project2019-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ProjectCloudAPIs:serve"
+            "devServerTarget": "Project2019:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "Project2019:serve:production"
+            }
           }
         },
         "lint": {
@@ -118,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "ProjectCloudAPIs"
+  "defaultProject": "Project2019"
 }
