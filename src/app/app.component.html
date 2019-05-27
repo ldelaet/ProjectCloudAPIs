@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="background">yeet</div>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<app-navbar></app-navbar>
 
 <div  style="text-align:center">
   
@@ -11,10 +12,11 @@
     </div>
   </div>
     
+      <div *ngIf="Pokemon == null">{{errorMessage}}</div>
+    </div>
       
-      <div *ngIf="Wrong">Voer een ID in groter dan 0 en kleiner dan 964</div>
   
-</div>
+
 <div class="text-center">
     <div class="row">
       <div  class="col-sm border">
@@ -46,10 +48,10 @@
           <p>{{Pokemon.name }}</p>
       </div>
       <div class="col-sm border">
-          <p>{{Pokemon.weight}}kg</p>
+          <p>{{Pokemon.weight/10}} kg</p>
       </div>
       <div class="col-sm border">
-          <p>{{Pokemon.height}}cm </p>
+          <p>{{Pokemon.height*10}} cm </p>
       </div>
       <div class="col-sm border">
           <p *ngFor="let ability of Pokemon.abilities">{{ability.ability.name}} <br> </p>
