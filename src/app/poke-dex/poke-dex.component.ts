@@ -16,6 +16,7 @@ export class PokeDexComponent implements OnInit {
   Image: string;
   error: {};
   errorMessage: string;
+  ID: number;
 
   
 
@@ -27,11 +28,19 @@ export class PokeDexComponent implements OnInit {
   }
   ngOnInit(){
     this.PagePointer = "";
+    this.ID = 1;
     
     this.getPokemonList();
 
   }
   nextPage(){
-
+   this.ID += 20;
+   this.PagePointer = this.Pokemons.next.replace(this.dataService.apiUrl,'');
+   this.getPokemonList();
   }
+  prevPage(){
+    this.ID -= 20;
+    this.PagePointer = this.Pokemons.previous.replace(this.dataService.apiUrl,'');
+    this.getPokemonList();
+   }
 }  

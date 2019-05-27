@@ -2,8 +2,8 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-sm"><p class="font-weight-bold">Zoek op naam:</p><input type="string" class="form-control" [(ngModel)]="SearchName" ></div>
-      <div class="col-sm"><p class="font-weight-bold">Zoek op ID:</p><input type="number" class="form-control" [(ngModel)]="SearchID" ></div>
+      <div class="col-sm mt-4"><p class="font-weight-bold">Zoek op naam:</p><input type="text" pattern="[a-zA-Z]*" class="form-control mb-4" [(ngModel)]="SearchName" ></div>
+      <div class="col-sm mt-4"><p class="font-weight-bold">Zoek op ID:</p><input type="number" class="form-control mb-4" [(ngModel)]="SearchID" ></div>
     </div>
   </div>
     
