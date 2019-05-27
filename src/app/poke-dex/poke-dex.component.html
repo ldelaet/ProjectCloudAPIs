@@ -1,3 +1,21 @@
-<p>
-  poke-dex works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Naam</th>
+      <th scope="col">URL</th>
+      <th scope="col">Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of Pokemons.results; let i = index">
+        <td>{{i+1}}</td>
+      <td>{{pokemon.name}}</td>
+      <td>{{pokemon.url}}</td>
+      
+      <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{i+1}}.png" alt=""></td>
+    </tr>
+    
+  </tbody>
+</table>
+<button></button>

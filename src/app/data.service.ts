@@ -7,13 +7,14 @@ import { Pokemon } from './data.service';
   providedIn: 'root'
 })
 export class DataService {
+  
   apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
   Poke: Pokemon;
   
   constructor(private _http: HttpClient) { }
 
-  getPokemons(){
-    return this._http.get<Pokemons>(this.apiUrl)
+  getPokemons(pagePointer){
+    return this._http.get<Pokemons>(this.apiUrl + pagePointer)
   }
  
   getPokemon(id){

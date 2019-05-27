@@ -1,5 +1,13 @@
-<p-toolbar><div class="ui-toolbar-group-left">
-  <button pButton type="button" label="Home" icon="pi pi-plus" ></button>
-      
-</div></p-toolbar>
-  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/home']" RouterLinkActive="active">home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/page1']" RouterLinkActive="active">PokeDex</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/page2']" RouterLinkActive="active">PokeSearch</a>
+</ul>
+
+<router-outlet></router-outlet>

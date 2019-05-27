@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, Pokemons, Pokemon } from '../data.service';
 
 @Component({
   selector: 'app-poke-dex',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokeDexComponent implements OnInit {
 
-  constructor() { }
+  Pokemons: Pokemons;
+  Pokemon: Pokemon;
+  _searchID: number;
+  _searchName: string;
+  PagePointer: string;
+  Image: string;
+  error: {};
+  errorMessage: string;
 
-  ngOnInit() {
+  
+
+  constructor(private dataService: DataService){
   }
+  getPokemonList(){
+    return this.dataService.getPokemons(this.PagePointer)
+    .subscribe(data => this.Pokemons = data)
+  }
+  ngOnInit(){
+    this.PagePointer = "";
+    
+    this.getPokemonList();
 
-}
+  }
+  nextPage(){
+
+  }
+}  

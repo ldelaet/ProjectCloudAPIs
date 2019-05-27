@@ -3,64 +3,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <app-navbar></app-navbar>
 
-<div  style="text-align:center">
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-sm"><p class="font-weight-bold">Zoek op naam:</p><input type="string" class="form-control" [(ngModel)]="SearchName" ></div>
-      <div class="col-sm"><p class="font-weight-bold">Zoek op ID:</p><input type="number" class="form-control" [(ngModel)]="SearchID" ></div>
-    </div>
-  </div>
-    
-      <div *ngIf="Pokemon == null">{{errorMessage}}</div>
-    </div>
-      
-  
-
-<div class="text-center">
-    <div class="row">
-      <div  class="col-sm border">
-          <h2>Afbeelding</h2>
-      </div>
-      <div class="col-sm border">
-          <h2>Naam</h2>
-      </div>
-      <div class="col-sm border">
-          <h2>Gewicht</h2>
-      </div>
-      <div class="col-sm border">
-          <h2>Grootte</h2>
-      </div>
-      <div class="col-sm border">
-          <h2>Abilities</h2>
-      </div>
-      <div class="col-sm border">
-          <h2>Moves</h2>
-      </div>
-    </div>
-  </div>
-<div *ngIf="SearchID || SearchName" class="">
-    <div *ngIf="Pokemon" class="row">
-      <div  class="col-sm border">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{Pokemon.id}}.png" alt="">
-      </div>
-      <div class="col-sm border">
-          <p>{{Pokemon.name }}</p>
-      </div>
-      <div class="col-sm border">
-          <p>{{Pokemon.weight/10}} kg</p>
-      </div>
-      <div class="col-sm border">
-          <p>{{Pokemon.height*10}} cm </p>
-      </div>
-      <div class="col-sm border">
-          <p *ngFor="let ability of Pokemon.abilities">{{ability.ability.name}} <br> </p>
-      </div>
-      <div class="col-sm border">
-          <p *ngFor="let move of Pokemon.moves">{{move.move.name}} <br> </p>
-      </div>
-    </div>
-  </div>
   
   
 
