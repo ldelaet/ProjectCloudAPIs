@@ -1,0 +1,14 @@
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\bin\Debug\netcoreapp2.2\APITest.deps.json
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\bin\Debug\netcoreapp2.2\APITest.runtimeconfig.json
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\bin\Debug\netcoreapp2.2\APITest.runtimeconfig.dev.json
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\bin\Debug\netcoreapp2.2\APITest.dll
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\bin\Debug\netcoreapp2.2\APITest.pdb
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.csprojAssemblyReference.cache
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.csproj.CoreCompileInputs.cache
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.RazorAssemblyInfo.cache
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.RazorAssemblyInfo.cs
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.AssemblyInfoInputs.cache
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.AssemblyInfo.cs
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.RazorTargetAssemblyInfo.cache
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.dll
+D:\School\CloudAPI\ProjectCloudAPIs\APITest\obj\Debug\netcoreapp2.2\APITest.pdb

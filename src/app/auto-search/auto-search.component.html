@@ -1,0 +1,25 @@
+<div class="container">
+  <p class="font-weight-bold">Zoek op ID:</p>
+  <input type="number" class="form-control mb-4" [(ngModel)]="SearchID" />
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Top Selheid</th>
+        <th scope="col">Merk</th>
+        <th scope="col">afbeelding</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="Autos">
+      <tr>
+        <td>{{ Autos.id }}</td>
+        <td>{{ Autos.naam }}</td>
+        <td>{{ Autos.topSnelheid }}</td>
+        <td>{{ Autos.merk }}</td>
+        <td><img src="{{ Autos.afbeelding }}" alt="" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

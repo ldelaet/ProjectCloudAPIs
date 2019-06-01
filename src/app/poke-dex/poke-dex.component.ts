@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService, Pokemons, Pokemon } from '../data.service';
+import { Component, OnInit } from "@angular/core";
+import { DataService, Pokemons, Pokemon } from "../services/data.service";
 
 @Component({
-  selector: 'app-poke-dex',
-  templateUrl: './poke-dex.component.html',
-  styleUrls: ['./poke-dex.component.css']
+  selector: "app-poke-dex",
+  templateUrl: "./poke-dex.component.html",
+  styleUrls: ["./poke-dex.component.css"]
 })
 export class PokeDexComponent implements OnInit {
-
   Pokemons: Pokemons;
   Pokemon: Pokemon;
   _searchID: number;
@@ -18,29 +17,29 @@ export class PokeDexComponent implements OnInit {
   errorMessage: string;
   ID: number;
 
-  
-
-  constructor(private dataService: DataService){
+  constructor(private dataService: DataService) {}
+  getPokemonList() {
+    return this.dataService
+      .getPokemons(this.PagePointer)
+      .subscribe(data => (this.Pokemons = data));
   }
-  getPokemonList(){
-    return this.dataService.getPokemons(this.PagePointer)
-    .subscribe(data => this.Pokemons = data)
-  }
-  ngOnInit(){
+  ngOnInit() {
     this.PagePointer = "";
     this.ID = 1;
-    
-    this.getPokemonList();
 
-  }
-  nextPage(){
-   this.ID += 20;
-   this.PagePointer = this.Pokemons.next.replace(this.dataService.apiUrl,'');
-   this.getPokemonList();
-  }
-  prevPage(){
-    this.ID -= 20;
-    this.PagePointer = this.Pokemons.previous.replace(this.dataService.apiUrl,'');
     this.getPokemonList();
-   }
-}  
+  }
+  nextPage() {
+    this.ID += 20;
+    this.PagePointer = this.Pokemons.next.replace(this.dataService.apiUrl, "");
+    this.getPokemonList();
+  }
+  prevPage() {
+    this.ID -= 20;
+    this.PagePointer = this.Pokemons.previous.replace(
+      this.dataService.apiUrl,
+      ""
+    );
+    this.getPokemonList();
+  }
+}

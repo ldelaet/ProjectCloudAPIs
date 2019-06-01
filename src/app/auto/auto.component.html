@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p class="font-weight-bold">Maak een auto aan:</p>
+      <p class="">Naam:</p>
+      <input type="text" class="form-control" (keyup)="getNaam($event)" />
+      <p class="">Top snelheid:</p>
+      <input
+        type="number"
+        class="form-control"
+        (keyup)="getTopSnelheid($event)"
+      />
+      <p class="">Merk:</p>
+      <input type="text" class="form-control" (keyup)="getMerk($event)" />
+      <p class="">Afbeelding:</p>
+      <input type="text" class="form-control" (keyup)="getAfbeelding($event)" />
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold">Wijzig een auto:</p>
+      <p class="">Id:</p>
+      <input type="number" class="form-control" (keyup)="getId($event)" />
+      <p class="">Naam:</p>
+      <input type="text" class="form-control" (keyup)="getNaam($event)" />
+      <p class="">Top snelheid:</p>
+      <input
+        type="number"
+        class="form-control"
+        (keyup)="getTopSnelheid($event)"
+      />
+      <p class="">Merk:</p>
+      <input type="text" class="form-control" (keyup)="getMerk($event)" />
+      <p class="">Afbeelding:</p>
+      <input type="text" class="form-control" (keyup)="getAfbeelding($event)" />
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold">Verwijder een auto op ID:</p>
+      <p class="">Id:</p>
+      <input type="number" class="form-control" (keyup)="getId($event)" />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm text-center">
+        <button
+          type="button"
+          [disabled]="
+            naam == '' || topSnelheid == '' || merk == '' || afbeelding == ''
+          "
+          class="btn btn-primary mt-2 "
+          (click)="AddCar()"
+        >
+          Maak aan
+        </button>
+      </div>
+      <div class="col-sm text-center">
+        <button type="button" (click)="putCar()" class="btn btn-primary mt-2 ">
+          Wijzig
+        </button>
+      </div>
+      <div class="col-sm text-center">
+        <button
+          type="button"
+          (click)="deleteCar()"
+          class="btn btn-primary mt-2"
+        >
+          Verwijder
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button
+      type="button"
+      (click)="getAutos()"
+      class="btn btn-primary mt-5 mb-2"
+    >
+      Refresh
+    </button>
+  </div>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Top Selheid</th>
+        <th scope="col">Merk</th>
+        <th scope="col">afbeelding</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="Autos">
+      <tr *ngFor="let Auto of Autos">
+        <td>{{ Auto.id }}</td>
+        <td>{{ Auto.naam }}</td>
+        <td>{{ Auto.topSnelheid }}</td>
+        <td>{{ Auto.merk }}</td>
+        <td><img src="{{ Auto.afbeelding }}" alt="" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
