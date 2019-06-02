@@ -13,10 +13,6 @@ namespace APITest.Controllers {
         public CarController (CarContext context) => _context = context;
 
         //GET:  api/car
-        [HttpGet]
-        public ActionResult<IEnumerable<Car>> GetCars () {
-            return _context.Cars;
-        }
 
         //GET: api/car/x
         [HttpGet ("{id}")]
@@ -25,15 +21,22 @@ namespace APITest.Controllers {
             if (commandItem != null) return commandItem;
             else return NotFound ();
         }
-        //GET: api/car/x
-        //[HttpGet]
-        //public List<Car> GetMerken (string merk) {
-        //  IQueryable<Car> query = _context.Cars;
-        // if (!string.IsNullOrWhiteSpace (merk)) {
-        //     query = query.Where (d => d.Merk == merk);
-        // }
-        // return query.ToList ();
-        // }
+
+        //GET: Pagination
+        [HttpGet]
+        public List<Car> GetMerken (string merk, int? page, int length = 2) {
+            IQueryable<Car> query = _context.Cars;
+
+            if (!string.IsNullOrWhiteSpace (merk)) {
+                query = query.Where (car => car.Merk == merk);
+            }
+            if (page.HasValue)
+                query = query.Skip (page.Value * length);
+
+            query = query.Take (length);
+
+            return query.ToList ();
+        }
 
         //POST: api/car
         [HttpPost]

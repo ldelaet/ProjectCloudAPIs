@@ -24,6 +24,11 @@
         >
       </li>
       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/page4']" RouterLinkActive="active"
+          >AutoSearch</a
+        >
+      </li>
+      <li class="nav-item">
         <a
           class="nav-link"
           *ngIf="!auth.isAuthenticated()"

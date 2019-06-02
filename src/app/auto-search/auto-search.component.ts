@@ -20,6 +20,11 @@ export class AutoSearchComponent implements OnInit {
       .getAuto(this.searchID)
       .subscribe(data => (this.Autos = data));
   }
+  getMerk() {
+    return this.autoSrvc
+      .getMerk(this.searchName)
+      .subscribe(data => (this.Autos = data));
+  }
 
   get SearchID() {
     return this.searchID;
@@ -27,5 +32,12 @@ export class AutoSearchComponent implements OnInit {
   set SearchID(value: number) {
     this.searchID = value;
     this.getAutoById();
+  }
+  get SearchName() {
+    return this.searchName;
+  }
+  set SearchName(value: string) {
+    this.searchName = value;
+    this.getMerk();
   }
 }

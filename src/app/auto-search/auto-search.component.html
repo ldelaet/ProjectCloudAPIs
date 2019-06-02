@@ -1,7 +1,17 @@
 <h1 *ngIf="!auth.isAuthenticated()" class="text-center">Log eerst in!</h1>
 <div *ngIf="auth.isAuthenticated()" class="container">
-  <p class="font-weight-bold">Zoek op ID:</p>
-  <input type="number" class="form-control mb-4" [(ngModel)]="SearchID" />
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-sm">
+        <p class="font-weight-bold">Zoek op ID:</p>
+        <input type="number" class="form-control mb-4" [(ngModel)]="SearchID" />
+      </div>
+      <div class="col-sm">
+        <p class="font-weight-bold">Filter op Merk:</p>
+        <input type="text" class="form-control mb-4" [(ngModel)]="SearchName" />
+      </div>
+    </div>
+  </div>
 
   <table class="table">
     <thead class="thead-dark">
@@ -13,14 +23,21 @@
         <th scope="col">afbeelding</th>
       </tr>
     </thead>
-    <tbody *ngIf="Autos">
-      <tr>
-        <td>{{ Autos.id }}</td>
-        <td>{{ Autos.naam }}</td>
-        <td>{{ Autos.topSnelheid }}</td>
-        <td>{{ Autos.merk }}</td>
-        <td><img src="{{ Autos.afbeelding }}" alt="" /></td>
+    <tbody *ngIf="Autos && searchName">
+      <tr *ngFor="let auto of Autos">
+        <td>{{ auto.id }}</td>
+        <td>{{ auto.naam }}</td>
+        <td>{{ auto.topSnelheid }}</td>
+        <td>{{ auto.merk }}</td>
+        <td><img src="{{ auto.afbeelding }}" alt="" /></td>
       </tr>
+    </tbody>
+    <tbody *ngIf="Autos && searchID">
+      <td>{{ Autos.id }}</td>
+      <td>{{ Autos.naam }}</td>
+      <td>{{ Autos.topSnelheid }}</td>
+      <td>{{ Autos.merk }}</td>
+      <td><img src="{{ Autos.afbeelding }}" alt="" /></td>
     </tbody>
   </table>
 </div>

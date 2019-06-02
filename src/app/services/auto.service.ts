@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class AutoService {
-  apiUrl = "http://localhost:5000/api/car/";
+  apiUrl = "http://localhost:5000/api/car";
   Autos: IAutos;
   constructor(private _http: HttpClient) {}
 
@@ -15,7 +15,10 @@ export class AutoService {
   }
 
   getAuto(id) {
-    return this._http.get<IAutos>(this.apiUrl + id + "/");
+    return this._http.get<IAutos>(this.apiUrl + "/" + id);
+  }
+  getMerk(merk) {
+    return this._http.get<IAutos>(this.apiUrl + "?merk=" + merk);
   }
 
   addCar(auto: IAutos): Observable<IAutos> {
@@ -27,6 +30,9 @@ export class AutoService {
   deleteCar(id: number): Observable<{}> {
     const url = `${this.apiUrl}${id}`; // DELETE api/car/x
     return this._http.delete(url);
+  }
+  pageShift(page) {
+    return this._http.get<IAutos>(this.apiUrl + "?page=" + page);
   }
 }
 

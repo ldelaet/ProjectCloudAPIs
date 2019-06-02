@@ -99,5 +99,19 @@
         <td><img src="{{ Auto.afbeelding }}" alt="" /></td>
       </tr>
     </tbody>
+    <button
+      type="button"
+      (click)="prevPage()"
+      [disabled]="page == 0"
+      class="btn btn-primary mt-5 mb-2"
+    >
+      prev</button
+    ><button
+      type="button"
+      (click)="nextPage()"
+      class="btn btn-primary mt-5 mb-2"
+    >
+      next
+    </button>
   </table>
 </div>

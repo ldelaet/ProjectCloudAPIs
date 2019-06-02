@@ -17,10 +17,13 @@ export class AutoComponent implements OnInit {
   afbeelding: string;
   searchName: string;
   searchID: number;
+  page: number;
+
   constructor(private autoSrvc: AutoService, private auth: AuthService) {}
 
   ngOnInit() {
     this.getAutos();
+    this.page = 0;
   }
   getId(event: any) {
     this.id = event.target.value;
@@ -74,5 +77,18 @@ export class AutoComponent implements OnInit {
   set SearchID(value: number) {
     this.searchID = value;
     this.getAutoById();
+  }
+
+  nextPage() {
+    this.page += 1;
+    return this.autoSrvc
+      .pageShift(this.page)
+      .subscribe(data => (this.Autos = data));
+  }
+  prevPage() {
+    this.page -= 1;
+    return this.autoSrvc
+      .pageShift(this.page)
+      .subscribe(data => (this.Autos = data));
   }
 }
