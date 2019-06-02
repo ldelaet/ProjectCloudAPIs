@@ -1,4 +1,5 @@
-<div class="container">
+<h1 *ngIf="!auth.isAuthenticated()" class="text-center">Log eerst in!</h1>
+<div *ngIf="auth.isAuthenticated()" class="container">
   <div class="row">
     <div class="col-sm">
       <p class="font-weight-bold">Maak een auto aan:</p>

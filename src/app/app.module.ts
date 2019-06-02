@@ -17,6 +17,8 @@ import { AccordionModule } from "primeng/accordion";
 import { AutoComponent } from "./auto/auto.component";
 import { AutoService } from "./services/auto.service";
 import { AutoSearchComponent } from "./auto-search/auto-search.component";
+import { AuthService } from "./auth.service";
+import { CallbackComponent } from "./callback/callback.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { AutoSearchComponent } from "./auto-search/auto-search.component";
     PokeSearchComponent,
     PageNotFoundComponent,
     AutoComponent,
-    AutoSearchComponent
+    AutoSearchComponent,
+    CallbackComponent
   ],
   imports: [
     RouterModule.forRoot([
@@ -36,6 +39,7 @@ import { AutoSearchComponent } from "./auto-search/auto-search.component";
       { path: "page2", component: PokeSearchComponent },
       { path: "page3", component: AutoComponent },
       { path: "page4", component: AutoSearchComponent },
+      { path: "callback", component: CallbackComponent },
       { path: "", redirectTo: "home", pathMatch: "full" },
       { path: "**", component: PageNotFoundComponent }
     ]),
@@ -47,7 +51,7 @@ import { AutoSearchComponent } from "./auto-search/auto-search.component";
     ToolbarModule,
     AccordionModule
   ],
-  providers: [DataService, AutoService],
+  providers: [DataService, AutoService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

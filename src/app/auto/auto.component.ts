@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AutoService, IAutos } from "../services/auto.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-auto",
@@ -16,7 +17,7 @@ export class AutoComponent implements OnInit {
   afbeelding: string;
   searchName: string;
   searchID: number;
-  constructor(private autoSrvc: AutoService) {}
+  constructor(private autoSrvc: AutoService, private auth: AuthService) {}
 
   ngOnInit() {
     this.getAutos();

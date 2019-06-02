@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using APITest.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,15 @@ namespace APITest.Controllers {
             if (commandItem != null) return commandItem;
             else return NotFound ();
         }
+        //GET: api/car/x
+        //[HttpGet]
+        //public List<Car> GetMerken (string merk) {
+        //  IQueryable<Car> query = _context.Cars;
+        // if (!string.IsNullOrWhiteSpace (merk)) {
+        //     query = query.Where (d => d.Merk == merk);
+        // }
+        // return query.ToList ();
+        // }
 
         //POST: api/car
         [HttpPost]

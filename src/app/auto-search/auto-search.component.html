@@ -1,4 +1,5 @@
-<div class="container">
+<h1 *ngIf="!auth.isAuthenticated()" class="text-center">Log eerst in!</h1>
+<div *ngIf="auth.isAuthenticated()" class="container">
   <p class="font-weight-bold">Zoek op ID:</p>
   <input type="number" class="form-control mb-4" [(ngModel)]="SearchID" />
 

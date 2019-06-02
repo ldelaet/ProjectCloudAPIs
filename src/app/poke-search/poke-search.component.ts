@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService, Pokemon, Pokemons } from "../services/data.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-poke-search",
@@ -15,7 +16,7 @@ export class PokeSearchComponent implements OnInit {
   error: {};
   errorMessage: string;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private auth: AuthService) {}
   getPokemon() {
     return (
       this.dataService

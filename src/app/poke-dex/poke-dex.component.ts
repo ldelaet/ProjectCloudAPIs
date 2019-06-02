@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService, Pokemons, Pokemon } from "../services/data.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-poke-dex",
@@ -17,7 +18,7 @@ export class PokeDexComponent implements OnInit {
   errorMessage: string;
   ID: number;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private auth: AuthService) {}
   getPokemonList() {
     return this.dataService
       .getPokemons(this.PagePointer)

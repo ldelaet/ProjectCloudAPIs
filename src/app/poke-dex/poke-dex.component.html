@@ -1,23 +1,56 @@
+<h1 *ngIf="!auth.isAuthenticated()" class="text-center">Log eerst in!</h1>
+<div *ngIf="auth.isAuthenticated()" class="container">
+  <button
+    class="btn btn-primary mx-auto"
+    [disabled]="Pokemons.previous == null"
+    (click)="prevPage()"
+  >
+    Prev
+  </button>
+  <button
+    class="btn btn-primary mx-auto"
+    [disabled]="Pokemons.next == null"
+    (click)="nextPage()"
+  >
+    Next
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of Pokemons.results; let i = index">
+        <td *ngIf="ID">{{ i * 1 + ID * 1 }}</td>
+        <td>
+          <h2>{{ pokemon.name }}</h2>
+        </td>
 
-<div class="container">
-<button class="btn btn-primary mx-auto" [disabled]="Pokemons.previous == null" (click)="prevPage()">Prev</button> <button class="btn btn-primary mx-auto" [disabled]="Pokemons.next == null"  (click)="nextPage()">Next</button>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Naam</th>
-      <th scope="col">Foto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let pokemon of Pokemons.results; let i = index">
-        <td *ngIf="ID">{{i*1+ID*1}}</td>
-      <td><h2>{{pokemon.name}}</h2></td>
-      
-      <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{i*1+ID*1}}.png" alt=""></td>
-    </tr>
-    
-  </tbody>
-</table>
-<button class="btn btn-primary" [disabled]="Pokemons.previous == null" (click)="prevPage()">Prev</button><button class="btn btn-primary" [disabled]="Pokemons.next == null"  (click)="nextPage()">Next</button>
+        <td>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{
+              i * 1 + ID * 1
+            }}.png"
+            alt=""
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button
+    class="btn btn-primary"
+    [disabled]="Pokemons.previous == null"
+    (click)="prevPage()"
+  >
+    Prev</button
+  ><button
+    class="btn btn-primary"
+    [disabled]="Pokemons.next == null"
+    (click)="nextPage()"
+  >
+    Next
+  </button>
 </div>
