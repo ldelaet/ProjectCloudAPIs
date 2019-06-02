@@ -15,7 +15,8 @@ export class AuthService {
     domain: "dev-au-jrv4o.eu.auth0.com",
     responseType: "token id_token",
     redirectUri: "http://localhost:4200/callback",
-    scope: "openid"
+    audience: "http://localhost:5000/api/car",
+    scope: "openid profile read:messages"
   });
 
   constructor(public router: Router) {

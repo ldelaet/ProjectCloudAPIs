@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using APITest.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace APITest.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
+    //[Authorize ("read:messages")]
     public class CarController : ControllerBase {
         private readonly CarContext _context;
         public CarController (CarContext context) => _context = context;
